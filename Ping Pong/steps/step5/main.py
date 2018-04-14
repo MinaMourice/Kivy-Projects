@@ -1,6 +1,3 @@
-import kivy
-kivy.require('1.1.1')
-
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ReferenceListProperty,\
@@ -42,7 +39,7 @@ class PongGame(Widget):
     def update(self, dt):
         self.ball.move()
 
-        # bounce ball off paddles
+        # bounce of paddles
         self.player1.bounce_ball(self.ball)
         self.player2.bounce_ball(self.ball)
 
@@ -50,7 +47,7 @@ class PongGame(Widget):
         if (self.ball.y < self.y) or (self.ball.top > self.top):
             self.ball.velocity_y *= -1
 
-        # went off a side to score point?
+        # went of to a side to score point?
         if self.ball.x < self.x:
             self.player2.score += 1
             self.serve_ball(vel=(4, 0))
