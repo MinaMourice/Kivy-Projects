@@ -1,7 +1,7 @@
 import kivy
 kivy.require('1.1.1')
 
-from kivy.app import App
+from kivy.app import App # import App
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ReferenceListProperty,\
     ObjectProperty
@@ -13,8 +13,8 @@ class PongPaddle(Widget):
     score = NumericProperty(0)
 
     def bounce_ball(self, ball):
-        if self.collide_widget(ball):
-            vx, vy = ball.velocity
+        if self.collide_widget(ball): # if the Paddle widget collide with ball widge  
+            vx, vy = ball.velocity 
             offset = (ball.center_y - self.center_y) / (self.height / 2)
             bounced = Vector(-1 * vx, vy)
             vel = bounced * 1.1
